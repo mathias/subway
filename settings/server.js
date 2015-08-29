@@ -4,7 +4,8 @@ var argv = require("yargs").argv;
 // Cache the plugin directory for a week
 settings = {
   plugin_directory_expiry: 604800,
-  dbadapter: "sqlite3",
+  dbadapter: "postgres",
+  dbConnectString: process.env.DATABASE_URL || "postgres://localhost/subway_development",
   dbname: "subway.db",
   dbusername: "",
   dbpassword: "",
@@ -33,6 +34,9 @@ settings = {
 
   // limit each user's connection log to this amount of messages (***not implemented yet***)
   max_log_size: 4096,
+
+  // Secret for session cookies
+  cookie_secret: process.env.SECRET_TOKEN || 'subway_secret',
 
   // Default servers
   // list default servers which you want the users 

@@ -74,7 +74,7 @@ async.waterfall([
   // we use this directory as the root of our server
   var app = express()
             .use(express.urlencoded())
-            .use(express.cookieParser(server_settings.cookie_secret || "subway_secret"))
+            .use(express.cookieParser(server_settings.cookie_secret))
             .use(express.static(cwd + "/tmp"));
 
   app.configure(function() {
