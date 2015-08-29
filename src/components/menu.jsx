@@ -324,18 +324,20 @@ app.components.startMenu = function() {
       return (
         <div className="menuContainer">
           <ul className="menuList">
-            <li className={this.state.activeItem === 'connect' ? 'activeMenuItem' : '' } onClick={this.connect}>
-              <span className="menuIcon"><i className="fa fa-bolt"></i></span>
-              Connect
-            </li>
-
             {function(cxt) {
               if(app.user) {
                 return (
-                  <li className={cxt.state.activeItem === 'user' ? 'activeMenuItem' : '' } onClick={cxt.user}>
-                    <span className="menuIcon"><i className="fa fa-user"></i></span>
-                    {app.user.get("username")}
-                  </li>
+                  <div>
+                    <li className={cxt.state.activeItem === 'connect' ? 'activeMenuItem' : '' } onClick={cxt.connect}>
+                      <span className="menuIcon"><i className="fa fa-bolt"></i></span>
+                      Connect
+                    </li>
+
+                    <li className={cxt.state.activeItem === 'user' ? 'activeMenuItem' : '' } onClick={cxt.user}>
+                      <span className="menuIcon"><i className="fa fa-user"></i></span>
+                      {app.user.get("username")}
+                    </li>
+                  </div>
                 )
               } else {
                 return (
