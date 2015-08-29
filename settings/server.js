@@ -5,7 +5,7 @@ var argv = require("yargs").argv;
 settings = {
   plugin_directory_expiry: 604800,
   dbadapter: "postgres",
-  dbConnectString: process.env.DATABASE_URL || "postgres://localhost/subway_development",
+  dbConnectionString: process.env.DATABASE_URL || "postgres://localhost/subway_development",
   dbname: "subway.db",
   dbusername: "",
   dbpassword: "",
@@ -18,8 +18,8 @@ settings = {
 
   /* not implemented yet */
   user_access: {
-    users_enabled: true,           // show and allow logins
-    registration_enabled: true     // allow new users to register themselves
+    users_enabled: true,            // show and allow logins
+    registration_enabled: process.env.REGISTRATION_ENABLED || false // allow new users to register themselves
   },
 
   dev: {

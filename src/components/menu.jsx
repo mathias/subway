@@ -317,7 +317,7 @@ app.components.startMenu = function() {
     },
 
     getInitialState: function() {
-      return { activeItem: "connect" };
+      return { activeItem: "login" };
     },
 
     render: function() {
@@ -328,6 +328,7 @@ app.components.startMenu = function() {
               <span className="menuIcon"><i className="fa fa-bolt"></i></span>
               Connect
             </li>
+
             {function(cxt) {
               if(app.user) {
                 return (
@@ -342,10 +343,6 @@ app.components.startMenu = function() {
                     <li className={cxt.state.activeItem === 'login' ? 'activeMenuItem' : '' } onClick={cxt.login}>
                       <span className="menuIcon"><i className="fa fa-lock"></i></span>
                       Login
-                    </li>
-                    <li className={cxt.state.activeItem === 'register' ? 'activeMenuItem' : '' } onClick={cxt.register}>
-                      <span className="menuIcon"><i className="fa fa-users"></i></span>
-                      Register
                     </li>
                   </div>
                 )
