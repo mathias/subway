@@ -337,6 +337,10 @@ app.components.startMenu = function() {
                       <span className="menuIcon"><i className="fa fa-user"></i></span>
                       {app.user.get("username")}
                     </li>
+                    <li className={cxt.state.activeItem === 'settings' ? 'activeMenuItem' : '' } onClick={cxt.settings}>
+                      <span className="menuIcon"><i className="fa fa-gear"></i></span>
+                      Settings
+                    </li>
                   </div>
                 )
               } else {
@@ -350,10 +354,6 @@ app.components.startMenu = function() {
                 )
               }
             }(this)}
-            <li className={this.state.activeItem === 'settings' ? 'activeMenuItem' : '' } onClick={this.settings}>
-              <span className="menuIcon"><i className="fa fa-gear"></i></span>
-              Settings
-            </li>
           </ul>
           <div className="menuArea">
             { function(cxt) {switch(cxt.state.activeItem) {
